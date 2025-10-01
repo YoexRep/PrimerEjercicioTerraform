@@ -1,0 +1,15 @@
+
+.terraform/
+*.tfstate
+*.tfstate.*
+*.log
+*.backup
+*.tfvars
+*.zip
+*.tar.gz
+*.gz
+*.bak
+*.swp
+*.DS_Store
+
+nginx-server.key

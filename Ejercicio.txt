@@ -1,0 +1,40 @@
+## 🏢 Escenario de práctica (ejercicio simulado)
+
+Yoel, bienvenido al equipo de **Infraestructura Cloud**.
+
+Necesitamos que prepares un entorno básico en **AWS** para un **equipo de desarrollo interno**. El objetivo es que los desarrolladores puedan probar una aplicación web.
+
+### 📌 Requerimientos
+
+1. **Red (VPC & Subredes)**
+    - Crea una **VPC propia** (no uses la default).
+    - Dentro de esa VPC, define **dos subnets públicas** en distintas **AZs**.
+    - Configura una **Internet Gateway** para que las instancias tengan salida a internet.
+    - Configura una **Route Table** para esas subnets.
+2. **Instancias EC2 (servidores web)**
+    - Debes crear **dos instancias EC2** (tipo `t2.micro`), cada una en una subnet diferente.
+    - Ambas instancias deben tener instalado **nginx** automáticamente (con `user_data`).
+    - Configúralas para aceptar tráfico en los puertos **22 (SSH)** y **80 (HTTP)**.
+3. **Balanceador de carga (ELB clásico o ALB)**
+    - Coloca un **Load Balancer** al frente de las dos instancias, de manera que se reparta el tráfico HTTP (puerto 80).
+    - El balanceador debe estar asociado a las dos subnets.
+4. **Outputs**
+    - El código debe mostrar como output la **IP pública del Load Balancer**, para que podamos probar la aplicación en el navegador.
+
+---
+
+### ✅ Qué se espera de ti
+
+- Organizar el proyecto en archivos lógicos (`main.tf`, `variables.tf`, `outputs.tf`).
+- Usar **variables** para al menos: región, tipo de instancia y nombre del proyecto.
+- Mantener el código legible y reutilizable (ejemplo: podrías usar módulos si quieres, pero no es obligatorio todavía).
+
+---
+
+👉 Con este ejercicio vas a practicar:
+
+- Red propia (VPC, subnets, gateway, routing).
+- Seguridad (SG con puertos limitados).
+- EC2 con configuración automática.
+- Balanceador de carga.
+- Outputs útiles.
