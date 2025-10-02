@@ -39,9 +39,11 @@ resource "aws_instance" "nginx-server_A_ps_1" {
 
   user_data = <<-EOF
               #!/bin/bash
-              sudo yum install -y nginx
-              sudo systemctl enable nginx
-              sudo systemctl start nginx
+              yum update -y
+              amazon-linux-extras enable nginx1
+              yum install -y nginx
+              systemctl enable nginx
+                systemctl start nginx
                echo "<h1>Servidor de nginx subnet A</h1>" > /usr/share/nginx/html/index.html
               EOF
 
@@ -69,13 +71,16 @@ resource "aws_instance" "nginx-server_B_ps_1" {
   associate_public_ip_address = true
 
 
-  user_data = <<-EOF
+    user_data = <<-EOF
               #!/bin/bash
-              sudo yum install -y nginx
-              sudo systemctl enable nginx
-              sudo systemctl start nginx
-              echo "<h1>Servidor de nginx subnet B</h1>" > /usr/share/nginx/html/index.html
+              yum update -y
+              amazon-linux-extras enable nginx1
+              yum install -y nginx
+              systemctl enable nginx
+                systemctl start nginx
+               echo "<h1>Servidor de nginx subnet B</h1>" > /usr/share/nginx/html/index.html
               EOF
+
 
   key_name = aws_key_pair.nginx-server-ssh.key_name
 

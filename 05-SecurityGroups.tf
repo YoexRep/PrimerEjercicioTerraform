@@ -14,12 +14,6 @@ resource "aws_security_group" "security_group_loadbalancer_ps_1" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-  ingress {
-    from_port   = 8080
-    to_port     = 8080
-    protocol    = "tcp"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
 
 # Permitir todo el trafico de salida
   egress {
@@ -49,12 +43,6 @@ resource "aws_security_group" "security_group_intances_ps_1" {
     security_groups = [aws_security_group.security_group_loadbalancer_ps_1.id]
   }
 
-  ingress {
-    from_port       = 8080
-    to_port         = 8080
-    protocol        = "tcp"
-    security_groups = [aws_security_group.security_group_loadbalancer_ps_1.id]
-  }
 
   egress {
     from_port   = 0
