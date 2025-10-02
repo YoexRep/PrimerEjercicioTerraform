@@ -13,3 +13,7 @@ output "ec2_a_public_dns" {
 output "ec2_b_public_dns" {
   value = "http://${aws_instance.nginx-server_B_ps_1.public_dns }"
 }
+
+
+#comando para conectarse por ssh a las instancias
+#ssh -i nginx-server.key ec2-user@ip_servidor
