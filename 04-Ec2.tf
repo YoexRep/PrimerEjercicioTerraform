@@ -44,7 +44,7 @@ resource "aws_instance" "nginx-server_A_ps_1" {
               yum install -y nginx
               systemctl enable nginx
                 systemctl start nginx
-               echo "<h1>Servidor de producción nginx subnet A</h1>" > /usr/share/nginx/html/index.html
+               echo "<h1>Servidor de nginx subnet A</h1>" > /usr/share/nginx/html/index.html
               EOF
 
   key_name = aws_key_pair.nginx-server-ssh.key_name
@@ -78,7 +78,7 @@ resource "aws_instance" "nginx-server_B_ps_1" {
               yum install -y nginx
               systemctl enable nginx
                 systemctl start nginx
-               echo "<h1>Servidor de pruebas nginx subnet B</h1>" > /usr/share/nginx/html/index.html
+               echo "<h1>Servidor de nginx subnet B</h1>" > /usr/share/nginx/html/index.html
               EOF
 
 
